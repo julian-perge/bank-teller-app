@@ -5,16 +5,23 @@ public class BankAccount
 {
 	public String getAccountNum()
 	{
-		return accountNum;
+		return this.accountNum;
 	}
 
 	public String getType()
 	{
-		return type;
+		return this.type;
 	}
 
 	public BigDecimal getBalance()
 	{
+		return this.balance;
+	}
+	
+	public BigDecimal addMonies(BigDecimal moniesToBeAdded)
+	{
+		balance = balance.add(moniesToBeAdded);
+		
 		return balance;
 	}
 

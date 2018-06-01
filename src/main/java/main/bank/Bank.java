@@ -8,17 +8,25 @@ import java.util.Set;
 
 public class Bank
 {
-	//public BankAccount bankAcc = new BankAccount("14471", "Checking", new BigDecimal(1.00));
-	public Map<String, BankAccount> bankAccounts = new HashMap<String, BankAccount>();
-	
+	private Map<String, BankAccount> bankAccounts = new HashMap<String, BankAccount>();
+
 	public Collection<BankAccount> returnAccounts()
 	{	
 		return bankAccounts.values();
 	}
 	
-	public void addBankAccount(BankAccount newAccount)
+	public BigDecimal getAccountBalance(String acctNum)
 	{
-		bankAccounts.put("4444", newAccount);
+		for (BankAccount entry : returnAccounts()) {
+			System.out.println(entry.getAccountNum() + " " + entry.getType() + " " + entry.getBalance());
+		}
+		
+		return bankAccounts.get(acctNum).getBalance();
+	}
+	
+	public void addBankAccount(String acctNum, BankAccount newAccount)
+	{
+		bankAccounts.put(acctNum, newAccount);
 	}
 	
 	public BankAccount getBankAccount(String acctNum)
